@@ -316,6 +316,14 @@ a { color: var(--primary-2); }
 .criteria-grid strong { display: block; font-family: var(--font-head); font-size: 16px; margin: 8px 0 4px; color: var(--primary); }
 .criteria-grid p { font-size: 12.5px; color: var(--muted); margin: 0; }
 
+/* مقرر تصفية التركات في محاور موجزة */
+.syllabus-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.syllabus-item { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding-block: 18px; padding-inline-end: 18px; padding-inline-start: 62px; min-height: 118px; }
+.syllabus-item > span { position: absolute; inset-block-start: 16px; inset-inline-start: 16px; width: 34px; height: 34px; border-radius: 10px; background: var(--primary-soft); color: var(--primary); display: grid; place-items: center; font-family: var(--font-head); font-weight: 900; font-size: 15px; }
+.syllabus-item h3 { font-family: var(--font-head); font-size: 15.5px; color: var(--primary); margin: 0 0 6px; }
+.syllabus-item p { margin: 0; font-size: 12.8px; line-height: 1.8; color: var(--muted); }
+.syllabus-note { margin-block-start: 12px; font-size: 12.5px; color: var(--muted); }
+
 .stair { display: flex; flex-direction: column; gap: 8px; max-width: 720px; }
 .stair-step { display: flex; align-items: center; gap: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 12px 18px; margin-inline-start: calc(var(--i, 0) * 18px); box-shadow: var(--shadow-sm); }
 .stair-step:nth-child(2) { --i: 1; } .stair-step:nth-child(3) { --i: 2; }
@@ -517,7 +525,7 @@ tbody tr:hover { background: var(--surface-3); }
   .brand-text strong { font-size: 13px; }
   .brand-mark { width: 32px; height: 32px; }
   .icon-btn { width: 34px; height: 34px; }
-  .quick-rules, .grid-2, .split, .split-cards, .feature-grid, .error-grid, .agent-grid, .glossary-grid, .source-list, .ban-grid, .criteria-grid, .flip-grid, .result-grid { grid-template-columns: 1fr; }
+  .quick-rules, .grid-2, .split, .split-cards, .feature-grid, .error-grid, .agent-grid, .glossary-grid, .source-list, .ban-grid, .criteria-grid, .syllabus-grid, .flip-grid, .result-grid { grid-template-columns: 1fr; }
   .module-grid, .structure-grid, .cases-grid, .tips-list { grid-template-columns: 1fr; }
   .hero { padding: 22px; border-radius: 20px; }
   .hero h1 { font-size: 25px; }
@@ -969,6 +977,19 @@ tbody tr:hover { background: var(--surface-3); }
             </ul>
           </div>
         </div>
+
+        <div class="section-head"><div><span class="kicker">من الكتاب · ص ٥–٩</span><h2>مقرر تصفية التركات في محاور موجزة</h2></div><span class="counter">٨ محاور</span></div>
+        <div class="syllabus-grid">
+          <article class="syllabus-item"><span>١</span><h3>التركة: الحدّ والعناصر</h3><p>لغةً ما يتركه الإنسان بعد وفاته، واصطلاحاً كل ما يتركه الميت من أموال: أصولاً كالمباني والأراضي، ومنقولاتٍ كالدراهم وعروض التجارة، ومنافعَ وحقوقٍ كالإيجار والثمر والدَّين والرهن والشُّفعة والارتفاق والاستسقاء.</p></article>
+          <article class="syllabus-item"><span>٢</span><h3>لماذا تُصفَّى التركة؟</h3><p>لأن أموال الميت قد اختلطت بأموال الورثة أو الشركاء أو الزوجة فتُفرَز بالدليل؛ ولأن لكل حقٍّ مرتبةً لا تُجاوز؛ ولأن الديون قد تُحيط بالتركة؛ ولئلا يُخلط بين الواجب من أصل المال والنافل من الثلث.</p></article>
+          <article class="syllabus-item"><span>٣</span><h3>مراتب الحقوق الأربع</h3><p>كفنٌ وتجهيزٌ، فديونٌ ثابتة، فوصيّة، فميراث. قال القطب رحمه الله: «ويبدؤون من ماله بالكفن ثم الديون ثم الوصية ثم الميراث». فلا تُقدَّم القسمة على إخراج هذه الحقوق.</p></article>
+          <article class="syllabus-item"><span>٤</span><h3>التجهيز بالمعروف</h3><p>غسلٌ وتكفينٌ ونقلٌ ودفنٌ بحسب عرف البلد، من غير إسراف ولا تقتير، حتى ما يُدفع مقابل مكان الدفن. أمّا العزاء وقاعات القرّاء وتزيين القبور ونحوها فليس بعضها من التركة، بل يلزم من تسبّب فيه.</p></article>
+          <article class="syllabus-item"><span>٥</span><h3>قسما الديون وحالاتها</h3><p>ديون العباد ما ثبت في الذمّة بمعاوضة كالقرض والبيع، وديون الخالق حقوق الله في المال كالزكاة والحج والكفّارات والنذور، وتصل في الواقع إلى الفقراء والمساكين. إن اتسعت التركة أُخرجت كلها، وإن ضاق الحال قدُّمت ديون العباد.</p></article>
+          <article class="syllabus-item"><span>٦</span><h3>المحاصصة عند الضيق</h3><p>إن لم تتّسع التركة لديون العباد نفسها قُسِمت بينهم بنسبة كل دين إلى المجموع: معامل المحاصصة = التركة ÷ مجموع الديون. ومثال الكتاب: ٣٫٥٠٠٫٠٠٠ ÷ ٤٫٦٠٠٫٠٠٠ ≈ ٠٫٧٦٠٨٦، ولا شيء على الورثة بعد ذلك إلا إن تبرّعوا.</p></article>
+          <article class="syllabus-item"><span>٧</span><h3>تفعيل آية الدين</h3><p>يُستحبّ كتابة الدين بأجلٍ مسمّى وكاتبٍ عدل، وإملاءٍ من عليه الدين أو وليّه، وإشهادِ رجلين أو رجلٍ وامرأتين، ولا يُسأم من كتابة الصغير والكبير. ومن شرط النجاة من التبعات: التصريحُ بالدين، ومعرفةُ الورثة بما بأيديهم من مال الميت.</p></article>
+          <article class="syllabus-item"><span>٨</span><h3>حدّ مسؤولية الورثة</h3><p>لا يُلزَم الورثة بما لم يعلموه من ديون وأمانات، إلا إن تربّعوا في مال الميت أو أحيَ عليه صاحبه الدعوة. والزكاة لا تُصرف في تنفيذ الوصية؛ فهي جُعلت لسدّ حاجات الأحياء لا الأموات. راجع أهل العلم عند التزاحم.</p></article>
+        </div>
+        <p class="syllabus-note">هذا المقرر مستخلص من «الباب الأول: التركة» ومباحث الديون في كتاب «إطلالات على فقه التركات»، ومبنيّ على مراتب الحقوق المعتمدة في المذهب الإباضي. والله أعلم.</p>
 
         <div class="section-head"><div><span class="kicker">أداة تفاعلية</span><h2>حاسبة تصفية التركة</h2></div><span class="counter">تجريبية · تعليمية</span></div>
         <div class="card calculator">

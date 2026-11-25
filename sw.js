@@ -1,7 +1,7 @@
 /* eslint-env serviceworker */
 'use strict';
 
-const CACHE_NAME = 'rusukh-tarkat-v5';
+const CACHE_NAME = 'rusukh-tarkat-v6';
 const SHELL = [
   './',
   './index.html',

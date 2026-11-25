@@ -295,6 +295,14 @@ a { color: var(--primary-2); }
 .criteria-grid strong { display: block; font-family: var(--font-head); font-size: 16px; margin: 8px 0 4px; color: var(--primary); }
 .criteria-grid p { font-size: 12.5px; color: var(--muted); margin: 0; }
 
+/* مقرر تصفية التركات في محاور موجزة */
+.syllabus-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.syllabus-item { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding-block: 18px; padding-inline-end: 18px; padding-inline-start: 62px; min-height: 118px; }
+.syllabus-item > span { position: absolute; inset-block-start: 16px; inset-inline-start: 16px; width: 34px; height: 34px; border-radius: 10px; background: var(--primary-soft); color: var(--primary); display: grid; place-items: center; font-family: var(--font-head); font-weight: 900; font-size: 15px; }
+.syllabus-item h3 { font-family: var(--font-head); font-size: 15.5px; color: var(--primary); margin: 0 0 6px; }
+.syllabus-item p { margin: 0; font-size: 12.8px; line-height: 1.8; color: var(--muted); }
+.syllabus-note { margin-block-start: 12px; font-size: 12.5px; color: var(--muted); }
+
 .stair { display: flex; flex-direction: column; gap: 8px; max-width: 720px; }
 .stair-step { display: flex; align-items: center; gap: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 12px 18px; margin-inline-start: calc(var(--i, 0) * 18px); box-shadow: var(--shadow-sm); }
 .stair-step:nth-child(2) { --i: 1; } .stair-step:nth-child(3) { --i: 2; }
@@ -496,7 +504,7 @@ tbody tr:hover { background: var(--surface-3); }
   .brand-text strong { font-size: 13px; }
   .brand-mark { width: 32px; height: 32px; }
   .icon-btn { width: 34px; height: 34px; }
-  .quick-rules, .grid-2, .split, .split-cards, .feature-grid, .error-grid, .agent-grid, .glossary-grid, .source-list, .ban-grid, .criteria-grid, .flip-grid, .result-grid { grid-template-columns: 1fr; }
+  .quick-rules, .grid-2, .split, .split-cards, .feature-grid, .error-grid, .agent-grid, .glossary-grid, .source-list, .ban-grid, .criteria-grid, .syllabus-grid, .flip-grid, .result-grid { grid-template-columns: 1fr; }
   .module-grid, .structure-grid, .cases-grid, .tips-list { grid-template-columns: 1fr; }
   .hero { padding: 22px; border-radius: 20px; }
   .hero h1 { font-size: 25px; }
