@@ -1,0 +1,21 @@
+{
+  "name": "إطلالات على فقه التركات — مشروع رسوخ",
+  "short_name": "فقه التركات",
+  "description": "تطبيق تدريبي تفاعلي في الوصايا والمواريث وتصفية التركات وفق كتاب إطلالات على فقه التركات، مدرسة أبي سالم تجنيت — مشروع رسوخ.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f5f2ea",
+  "theme_color": "#0d5548",
+  "categories": ["education", "reference"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/favicon-32.png", "sizes": "32x32", "type": "image/png", "purpose": "any" }
+  ]
+}
