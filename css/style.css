@@ -303,14 +303,16 @@ a { color: var(--primary-2); }
 .stair-step strong { font-family: var(--font-head); font-size: 14.5px; }
 .stair-step small { color: var(--muted); font-size: 12px; margin-inline-start: auto; }
 
-.flip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.flip { perspective: 900px; min-height: 130px; cursor: pointer; background: none; border: 0; padding: 0; text-align: center; }
-.flip-inner { position: relative; width: 100%; height: 100%; min-height: 130px; transition: transform .55s; transform-style: preserve-3d; }
+.flip-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; align-items: stretch; }
+.flip { display: block; width: 100%; perspective: 900px; cursor: pointer; background: none; border: 0; padding: 0; text-align: center; }
+.flip-inner { display: grid; width: 100%; transition: transform .55s; transform-style: preserve-3d; }
 .flip.flipped .flip-inner { transform: rotateY(180deg); }
-.flip-face { position: absolute; inset: 0; backface-visibility: hidden; display: grid; place-items: center; padding: 16px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow-sm); font-size: 13.5px; font-weight: 800; line-height: 1.8; }
+.flip-face { grid-area: 1 / 1; position: relative; backface-visibility: hidden; -webkit-backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; gap: 8px; min-height: 168px; padding: 22px 16px 34px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow-sm); font-size: 13.5px; font-weight: 800; line-height: 1.8; }
 .flip-front { background: var(--surface); color: var(--ink); }
-.flip-front::after { content: "👈 اضغط لقلب البطاقة"; position: absolute; inset-block-end: 8px; font-size: 10px; font-weight: 600; color: var(--muted); }
-.flip-back { background: var(--primary-soft); color: var(--primary); transform: rotateY(180deg); font-weight: 600; font-size: 12.5px; }
+.flip-front::before { content: "التصوّر الشائع"; align-self: center; font-size: 10.5px; font-weight: 800; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 2px 10px; }
+.flip-front::after { content: "👈 اضغط لقلب البطاقة"; position: absolute; inset-block-end: 8px; inset-inline: 0; font-size: 10px; font-weight: 600; color: var(--muted); }
+.flip-back { background: var(--primary-soft); color: var(--primary); transform: rotateY(180deg); font-weight: 600; font-size: 12.8px; }
+.flip-back::before { content: "✓ التصحيح"; align-self: center; font-size: 10.5px; font-weight: 900; border: 1px solid currentColor; border-radius: 999px; padding: 2px 10px; opacity: .85; }
 
 /* ============ الكفارات ============ */
 .tabs { display: flex; gap: 8px; overflow-x: auto; padding-block-end: 8px; margin-block-end: 4px; scrollbar-width: thin; }
