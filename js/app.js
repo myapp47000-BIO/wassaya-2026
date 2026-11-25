@@ -73,7 +73,7 @@
     $("#homeCounter").textContent = done + " / " + MODULES.length + " منجز";
     $("#sideHint").textContent = done === MODULES.length
       ? "أكملتَ المسار — تخرّجك جاهز ✦"
-      : "أكمل المحاور الثمانية لتحصل على شهادة التخرّج";
+      : "أكمل المحاور العشرة لتحصل على شهادة التخرّج";
     $$(".module-card").forEach((card) => {
       const isDone = state.progress.includes(card.dataset.page);
       card.classList.toggle("is-done", isDone);
@@ -262,18 +262,35 @@
 
   /* ---------- الاختبار ---------- */
   const AR_KEYS = ["أ", "ب", "ج", "د"];
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
   function startQuiz() {
-    state.quiz = { active: true, index: 0, score: 0, answered: false };
+    const questions = shuffle(QUIZ).map((q) => {
+      const idx = shuffle(q.o.map((_, i) => i));
+      return {
+        q: q.q,
+        o: idx.map((i) => q.o[i]),
+        c: idx.indexOf(q.c),
+        e: q.e
+      };
+    });
+    state.quiz = { active: true, index: 0, score: 0, answered: false, questions };
     $("#quizIntro").hidden = true;
     $("#quizBox").hidden = false;
     renderQuestion();
   }
   function renderQuestion() {
-    const q = QUIZ[state.quiz.index];
-    const pct = Math.round((state.quiz.index / QUIZ.length) * 100);
+    const q = state.quiz.questions[state.quiz.index];
+    const pct = Math.round((state.quiz.index / state.quiz.questions.length) * 100);
     $("#quizBox").innerHTML = `
       <div class="card quiz-card">
-        <div class="quiz-top"><span>السؤال ${state.quiz.index + 1} من ${QUIZ.length}</span><span>النتيجة: ${state.quiz.score} ✓</span></div>
+        <div class="quiz-top"><span>السؤال ${state.quiz.index + 1} من ${state.quiz.questions.length}</span><span>النتيجة: ${state.quiz.score} ✓</span></div>
         <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
         <div class="quiz-q">${esc(q.q)}</div>
         <div class="quiz-options">${q.o.map((o, i) => `<button class="opt" type="button" data-opt="${i}"><span class="opt-key">${AR_KEYS[i]}</span><span>${esc(o)}</span></button>`).join("")}</div>
@@ -284,7 +301,7 @@
     const opt = e.target.closest("[data-opt]");
     if (opt && !state.quiz.answered) {
       const chosen = Number(opt.dataset.opt);
-      const q = QUIZ[state.quiz.index];
+      const q = state.quiz.questions[state.quiz.index];
       state.quiz.answered = true;
       if (chosen === q.c) state.quiz.score++;
       $$(".opt", $("#quizBox")).forEach((b, i) => {
@@ -292,25 +309,25 @@
         if (i === q.c) b.classList.add("correct");
         else if (i === chosen) b.classList.add("wrong");
       });
-      $("#quizFeedback").innerHTML = `<div class="quiz-feedback"><strong>${chosen === q.c ? "إجابة صحيحة ✓" : "الإجابة الصحيحة هي: ${AR_KEYS[q.c]}"}</strong><br>${esc(q.e)}<div class="action-row"><button class="btn btn-primary btn-sm" id="quizNext" type="button">${state.quiz.index === QUIZ.length - 1 ? "عرض النتيجة ✦" : "السؤال التالي ←"}</button></div></div>`;
+      $("#quizFeedback").innerHTML = `<div class="quiz-feedback"><strong>${chosen === q.c ? "إجابة صحيحة ✓" : "الإجابة الصحيحة هي: ${AR_KEYS[q.c]}"}</strong><br>${esc(q.e)}<div class="action-row"><button class="btn btn-primary btn-sm" id="quizNext" type="button">${state.quiz.index === state.quiz.questions.length - 1 ? "عرض النتيجة ✦" : "السؤال التالي ←"}</button></div></div>`;
       $("#quizNext").addEventListener("click", (ev) => { ev.stopPropagation(); nextQuestion(); });
       return;
     }
   }
   function nextQuestion() {
-    if (state.quiz.index + 1 < QUIZ.length) {
+    if (state.quiz.index + 1 < state.quiz.questions.length) {
       state.quiz.index++;
       state.quiz.answered = false;
       renderQuestion();
     } else {
-      const pct = Math.round((state.quiz.score / QUIZ.length) * 100);
+      const pct = Math.round((state.quiz.score / state.quiz.questions.length) * 100);
       const ok = pct >= 70;
       if (ok) markDone("quiz", true);
       $("#quizBox").innerHTML = `
         <div class="card quiz-result">
           <div class="score">${pct}%</div>
           <h3>${ok ? "أحسنتَ! نجحتَ في الاختبار ✦" : "تحتاج إلى مراجعة المحاور"}</h3>
-          <p class="muted">أجبتَ بشكل صحيح عن ${state.quiz.score} من ${QUIZ.length} سؤالاً.</p>
+          <p class="muted">أجبتَ بشكل صحيح عن ${state.quiz.score} من ${state.quiz.questions.length} سؤالاً.</p>
           <div class="action-row center">
             <button class="btn btn-primary" id="quizAgain" type="button">إعادة الاختبار</button>
             <button class="btn btn-ghost" id="quizBack" type="button">العودة إلى الاختبار</button>
@@ -556,7 +573,7 @@
     state.willText = text;
     const done = state.progress.filter((id) => MODULE_IDS.includes(id)).length;
     const certNote = done === MODULES.length
-      ? "استوفى محاور الدورة الثمانية بنجاح، وأخرج وصيّته النموذجية وفق ما تعلّمه."
+      ? "استوفى محاور الدورة العشرة بنجاح، وأخرج وصيّته النموذجية وفق ما تعلّمه."
       : "أخرج وصيّته النموذجية، وتبقّى " + (8 - done) + " محوراً لاستكمال المسار (" + done + "/8).";
     $("#willOutput").innerHTML = `
       <div class="will-sheet printable">
@@ -618,6 +635,78 @@
     form.reset(); $("#willOutput").hidden = true; $("#willOutput").innerHTML = "";
     setStep(0); toast("تمّ مسح المسوّدة");
   });
+
+  /* ---------- البحث في كل المحاور ---------- */
+  const searchInput = $("#siteSearch");
+  const searchBox = $("#searchResults");
+  const PAGE_LABELS = {
+    home: "الرئيسية", concept: "المدخل التصوري", rules: "أحكام الوصية ومقاصدها", kaffarat: "الكفّارات",
+    rights: "الحقوق والالتزامات", agent: "الوكيل وأهليته", mirath: "مدخل المواريث", tafdiya: "تصفية التركات",
+    builder: "صانع الوصيّة", spiritual: "التوبة والوصية الروحية", customs: "وصية الأقرب والخاتمة",
+    quiz: "اختبار المعرفة", glossary: "معجم المصطلحات", about: "عن الدورة والمصادر"
+  };
+  function runSearch(term) {
+    const q = term.trim();
+    if (q.length < 2) { searchBox.hidden = true; searchBox.innerHTML = ""; return; }
+    const needle = q.toLocaleLowerCase("ar");
+    const found = [];
+    $$(".page").forEach((page) => {
+      const text = (page.innerText || "").replace(/\s+/g, " ").trim();
+      const at = text.toLocaleLowerCase("ar").indexOf(needle);
+      if (at === -1) return;
+      const from = Math.max(0, at - 45);
+      const snippet = (at > 45 ? "… " : "") + text.slice(from, at + q.length + 95) + " …";
+      found.push({ id: page.id, label: PAGE_LABELS[page.id] || page.id, snippet });
+    });
+    searchBox.innerHTML = found.length
+      ? found.map((r) => `<button class="search-result" type="button" data-page-hit="${r.id}"><strong>${esc(r.label)}</strong><small>${esc(r.snippet)}</small></button>`).join("")
+      : `<div class="search-empty">لا توجد نتيجة لـ «${esc(q)}». جرّب كلمة أخرى مثل: محاصصة، أقرب، توبة، كفارة.</div>`;
+    searchBox.hidden = false;
+  }
+  searchInput.addEventListener("input", (e) => runSearch(e.target.value));
+  searchInput.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") { searchBox.hidden = true; searchInput.value = ""; searchInput.blur(); }
+    if (e.key === "Enter") { const first = $(".search-result", searchBox); if (first) first.click(); }
+  });
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".search-wrap")) searchBox.hidden = true;
+    const hit = e.target.closest("[data-page-hit]");
+    if (hit) { showPage(hit.dataset.pageHit); searchBox.hidden = true; searchInput.value = ""; }
+  });
+
+  /* ---------- خريطة التوبة ---------- */
+  const TAWBA_DETAILS = {
+    "ندمٌ": ["الندم", "أن يتألم العبدُ لما صدر منه من تقصيرٍ في جنب الله تعالى، ويكون هذا الألمُ مصحوباً بصدقِ الرجوع لا بمجرد القول."],
+    "إقلاعٌ": ["الإقلاع", "أن يترك الذنبَ فوراً ولا يُصرّ عليه. فالإصرارُ هو أن يعود إليه ويُقيم عليه، وهو الذي يمنع قبول التوبة ويُطبع على القلب."],
+    "استغفارٌ": ["الاستغفار", "طلبُ المغفرة من الله مع الاعتراف له بالذنب؛ قال سبحانه: ﴿إِنَّ اللَّهَ يُحِبُّ التَّوَّابِينَ وَيُحِبُّ الْمُتَطَهِّرِينَ﴾."],
+    "استقامة": ["الاستقامة", "يلتزم العبدُ بعد توبته بالعمل الصالح والاستقامة على دين الله، فتُبدّل سيئاته حسنات، ويكون من عباد الرحمن الذين لا يُصرّون على ما فعلوا وهم يعلمون."]
+  };
+  const tawbaDetail = $("#tawbaDetail");
+  function renderTawba(key) {
+    const d = TAWBA_DETAILS[key] || TAWBA_DETAILS["ندمٌ"];
+    tawbaDetail.innerHTML = `<h3>${esc(d[0])}</h3><p>${esc(d[1])}</p>`;
+  }
+  $$(".tawba-step").forEach((step) => {
+    step.addEventListener("click", () => {
+      $$(".tawba-step").forEach((s) => s.classList.toggle("active", s === step));
+      renderTawba(step.dataset.t);
+    });
+  });
+  renderTawba("ندمٌ");
+
+  /* ---------- حاسبة وصية الأقرب ---------- */
+  const relAmount = $("#relativeAmount");
+  const relCount = $("#relativeCount");
+  const relResult = $("#relativeResult");
+  function renderRelatives() {
+    const amount = Math.max(0, Number(relAmount.value) || 0);
+    const count = Math.max(1, Math.floor(Number(relCount.value) || 1));
+    const each = amount / count;
+    relResult.innerHTML = `<div class="result-grid"><div><small>مبلغ الوصية</small><strong>${fmt(amount)} دج</strong></div><div><small>عدد الأقارب</small><strong>${fmt(count)}</strong></div><div><small>نصيب كل قريب</small><strong>${fmt(each)} دج</strong></div></div>`;
+  }
+  relAmount.addEventListener("input", renderRelatives);
+  relCount.addEventListener("input", renderRelatives);
+  renderRelatives();
 
   /* ---------- بدء التطبيق ---------- */
   renderModules();

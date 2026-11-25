@@ -31,7 +31,7 @@ app = app.replace(
 )
 
 # Inline stylesheet.
-html = html.replace('<link rel="stylesheet" href="css/style.css">',
+html = html.replace('<link rel="stylesheet" href="css/style.css?v=1.1.0">',
                     "<style>\n" + css + "\n</style>")
 
 # Inline icons as data URIs so no icons/ folder is needed for the page itself.
@@ -48,7 +48,7 @@ html = html.replace('  <meta name="theme-color" content="#0d5548">',
                     f'  <link rel="apple-touch-icon" href="{icon192}">')
 
 # Inline scripts.
-html = html.replace('  <script src="js/data.js"></script>\n  <script src="js/app.js"></script>',
+html = html.replace('  <script src="js/data.js?v=1.1.0"></script>\n  <script src="js/app.js?v=1.1.0"></script>',
                     "  <script>\n" + data + "\n  </script>\n"
                     "  <script>\n" + app + "\n  </script>")
 

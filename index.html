@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>إطلالات على فقه التركات | مشروع رسوخ — مدرسة أبي سالم تجنيت</title>
+  <title>فقه الوصايا والمواريث | مشروع رسوخ — مدرسة أبي سالم تجنينت</title>
   <meta name="description" content="تطبيق تكويني تفاعلي يعمل دون إنترنت في فقه الوصايا والمواريث وتصفية التركات: أحكام ومقاصد، كفارات، حقوق والتزامات، وكيل الوصية، مدخل المواريث، حاسبة التركات، وصانع وصية نموذجية مع شهادة تخرج.">
   <meta name="keywords" content="فقه التركات, الوصية الشرعية, المواريث, تصفية التركات, الكفارات, مشروع رسوخ, مدرسة أبي سالم تجنيت, ح قاسم بن ح عمر حاج امحمد">
   <meta name="theme-color" content="#0d5548">
@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=1.1.0">
 </head>
 <body>
   <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
@@ -43,6 +43,11 @@
       </div>
     </div>
     <div class="top-actions">
+      <div class="search-wrap" role="search">
+        <input id="siteSearch" type="search" placeholder="ابحث في المحاور…" aria-label="بحث في محاور التطبيق" autocomplete="off">
+        <span class="search-ico" aria-hidden="true">🔎</span>
+        <div class="search-results" id="searchResults" hidden></div>
+      </div>
       <span class="net-pill" id="netPill" title="حالة الاتصال"><i></i><span>متصل</span></span>
       <button class="icon-btn" id="themeBtn" aria-label="تبديل الوضع الليلي" title="الوضع الليلي">🌙</button>
       <button class="icon-btn" id="printBtn" aria-label="طباعة الصفحة" title="طباعة">🖨️</button>
@@ -58,7 +63,7 @@
       <div class="side-progress">
         <div class="side-progress-top"><span>تقدّم التكوين</span><strong id="sidePct">0%</strong></div>
         <div class="progress-track"><div class="progress-fill" id="sideBar"></div></div>
-        <small id="sideHint">أكمل المحاور الثمانية لتحصل على شهادة التخرّج</small>
+        <small id="sideHint">أكمل المحاور العشرة لتحصل على شهادة التخرّج</small>
       </div>
 
       <div class="nav-label">مسار التكوين</div>
@@ -71,6 +76,8 @@
       <button class="nav-item" data-page="mirath"><span class="nav-ico">🧮</span><span>مدخل المواريث</span></button>
       <button class="nav-item" data-page="tafdiya"><span class="nav-ico">🧾</span><span>تصفية التركات</span></button>
       <button class="nav-item nav-special" data-page="builder"><span class="nav-ico">✍️</span><span>صانع الوصيّة</span><em>تخرّج</em></button>
+      <button class="nav-item" data-page="spiritual"><span class="nav-ico">🕊️</span><span>التوبة والوصية الروحية</span></button>
+      <button class="nav-item" data-page="customs"><span class="nav-ico">🌿</span><span>وصية الأقرب والخاتمة</span></button>
 
       <div class="nav-label">أدوات مساندة</div>
       <button class="nav-item" data-page="quiz"><span class="nav-ico">🧠</span><span>اختبار المعرفة</span></button>
@@ -141,7 +148,7 @@
         </div>
 
         <div class="section-head">
-          <div><span class="kicker">مسار التكوين</span><h2>ثمانية محاور... من الفهم إلى التخرّج</h2></div>
+          <div><span class="kicker">مسار التكوين</span><h2>عشرة محاور... من الفهم إلى التخرّج</h2></div>
           <span class="counter" id="homeCounter">٠ / ٨ منجز</span>
         </div>
         <div class="module-grid" id="moduleGrid"></div>
@@ -588,9 +595,136 @@
 
         <div class="notice">
           <span class="notice-ico">✍️</span>
-          <div><strong>شهادة التخرّج</strong><p>تُمنح الشهادة بعد إنشاء الوصية واستكمال المحاور الثمانية. احتفظ بنسخة منها ومن نصّ الوصية، وراجع جهة التوثيق المختصّة لتصير الوصية قابلة للتنفيذ قانوناً.</p></div>
+          <div><strong>شهادة التخرّج</strong><p>تُمنح الشهادة بعد إنشاء الوصية واستكمال المحاور العشرة. احتفظ بنسخة منها ومن نصّ الوصية، وراجع جهة التوثيق المختصّة لتصير الوصية قابلة للتنفيذ قانوناً.</p></div>
         </div>
         <div class="page-nav"><button class="btn btn-ghost" data-go="tafdiya">← تصفية التركات</button><button class="btn btn-primary" data-go="quiz">اختبر معرفتك ←</button></div>
+      </section>
+
+      <!-- ================= 9. التوبة والوصية الروحية ================= -->
+      <section class="page" id="spiritual">
+        <div class="page-head">
+          <span class="kicker">المحور التاسع</span>
+          <h2>التوبة والوصية الروحية</h2>
+          <p>الجوهر قبل الصيغة: ما يمحو الذنب هو التوبة، والوصية وسيلةٌ لأداء الحقوق لا ضمانٌ للنجاة.</p>
+        </div>
+
+        <div class="callout">
+          <strong>قاعدة هذا المحور</strong>
+          <p>ما يرجوه الموصي هو رضوان الله، وهذا لا يتحقق إلا بمغفرة الذنوب والتوبة عليه. فالتوبة أولُ ما يبادر إليه الموصي قبل كتابة أي حرف من وصيته؛ فالوصية مع الإصرار على المعصية عملٌ غير صالح لا يُقبل.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card accent-card">
+            <h3>الإيصاء بحقوق الله والعباد</h3>
+            <p>يجب على المسلم أن يُوصي بما تعلّق بذمته من حقوق الله: فريضة الحج، أو النذر، أو الكفارة، أو زكاة مال، إذا قصّر في أدائها أو لم يتمكن بلا تقصير.</p>
+            <p>ويجب كذلك الإيصاء بحقوق العباد: دينٌ، أو أمانة، أو ضمانُ إتلافٍ أو سرقةٍ أو مظلمةٍ، مع التوبة النصوح والمحاللة لصاحب المظلمة.</p>
+            <div class="mini-note">ويكون الإيصاء على نية الصفة المرحلية المؤقتة؛ فمتى استطاع أداءها في حياته بادر إليها، ولا يتركها للورثة متهاوناً.</div>
+          </div>
+          <div class="card">
+            <h3>هل يُنتفع بأجور الأعمال بعد الموت؟</h3>
+            <p>نعم، لمن مات موفياً بدين الله تائباً راجعاً إليه: ﴿إِنَّا نَحْنُ نُحْيِي الْمَوْتَىٰ وَنَكْتُبُ مَا قَدَّمُوا وَآثَارَهُمْ﴾ [يس ١٢]. وأمّا ﴿وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ﴾ فهي عامةٌ مخصوصةٌ بالسنة الصحيحة.</p>
+            <div class="hadith"><p>«إن الله تصدّق عليكم عند وفاتكم بثلث أموالكم زيادةً في أعمالكم».</p><small>رواه ابن ماجة</small></div>
+            <div class="hadith"><p>«إذا مات ابن آدم انقطع عمله إلا من ثلاث: صدقةٌ جارية، أو علمٌ يُنتفع به، أو ولدٌ صالحٌ يدعو له».</p><small>رواه مسلم</small></div>
+          </div>
+        </div>
+
+        <div class="section-head"><div><span class="kicker">اضغط لتفاصيل كل خطوة</span><h2>حقيقة التوبة النصوح</h2></div><span class="counter">٤ خطوات متلازمة</span></div>
+        <div class="tawba-flow" id="tawbaFlow">
+          <button class="tawba-step active" type="button" data-t="ندمٌ"><span>١</span><strong>الندم</strong><small>شعورٌ بالتقصير في جنب الله</small></button>
+          <button class="tawba-step" type="button" data-t="إقلاعٌ"><span>٢</span><strong>الإقلاع</strong><small>ترك الذنب وقطع الإصرار</small></button>
+          <button class="tawba-step" type="button" data-t="استغفارٌ"><span>٣</span><strong>الاستغفار</strong><small>رجوعٌ واعترافٌ بين يديه</small></button>
+          <button class="tawba-step" type="button" data-t="استقامة"><span>٤</span><strong>الاستقامة</strong><small>صدقٌ في الالتزام والعمل الصالح</small></button>
+        </div>
+        <div class="card tawba-detail" id="tawbaDetail" aria-live="polite"></div>
+
+        <div class="section-head"><div><span class="kicker">مواطن دقيقة</span><h2>الإصرار، القنوط، والستر</h2></div></div>
+        <div class="grid-3">
+          <div class="card risk-card">
+            <span class="risk-ico">⚠️</span><h3>خطر الإصرار</h3>
+            <p>التمادي على الذنب والإقامة عليه يُطبع على القلب، ويجعله منافياً للتقوى وصفات المتقين. قال تعالى: ﴿بَلْ رَانَ عَلَىٰ قُلُوبِهِم مَّا كَانُوا يَكْسِبُونَ﴾.</p>
+            <div class="mini-note">﴿وَالَّذِينَ إِذَا فَعَلُوا فَاحِشَةً أَوْ ظَلَمُوا أَنفُسَهُمْ ذَكَرُوا اللَّهَ فَاسْتَغْفَرُوا لِذُنُوبِهِمْ وَلَمْ يُصِرُّوا عَلَىٰ مَا فَعَلُوا وَهُمْ يَعْلَمُونَ﴾.</div>
+          </div>
+          <div class="card risk-card">
+            <span class="risk-ico">🌅</span><h3>خطر القنوط</h3>
+            <p>لا يجوز للمذنب أن ييأس من رحمة الله مهما أكثر السيئات؛ بل عليه أن يرجع تائباً منيباً معترفاً نادماً.</p>
+            <div class="mini-note">﴿قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ﴾ [الزمر ٥٣]. بل يبدّل الله سيئاتهم حسنات.</div>
+          </div>
+          <div class="card risk-card">
+            <span class="risk-ico">🤫</span><h3>الستر على العاصي</h3>
+            <p>من فقه التوبة ألا يُفشي العاصي ذنبه، وألا يكشف غيرُه ما علمه من معصيته، لأن في ذلك تعريضاً للتهمة ونشراً للفاحشة.</p>
+            <div class="mini-note">﴿إِنَّ الَّذِينَ يُحِبُّونَ أَن تَشِيعَ الْفَاحِشَةُ فِي الَّذِينَ آمَنُوا لَهُمْ عَذَابٌ أَلِيمٌ﴾ [النور ١٩].</div>
+          </div>
+        </div>
+
+        <div class="section-head"><div><span class="kicker">متى يُرفع الستر؟</span><h2>استثناءات الإعلان بالتوبة</h2></div></div>
+        <div class="card">
+          <ul class="check-list">
+            <li>إذا كانت المعصية <strong>في العلن</strong>؛ فإن إعلان التوبة يكون جبراً لما أُفسد في العلن.</li>
+            <li>إذا <strong>اشترك آخرون</strong> في اقترافها؛ فإن توبته تُعلَن لهم.</li>
+            <li>إذا <strong>ترتبت عليها مظالم للعباد</strong>؛ فيلزم إعلان التوبة لأولئك مع ردّ المظالم، تبرئةً لذمته وصوناً لعرضه.</li>
+          </ul>
+          <div class="hadith"><p>«الذنب ذنبان: ذنب بين العبد وربه، وذنب بين العبد وصاحبه. أما الذي بين العبد وربه فمن تاب منه كمن لا ذنب له، والذي بين العبد وصاحبه فلا توبة منه حتى يردّ المظالم».</p><small>رواه الإمام الربيع بن حبيب</small></div>
+        </div>
+        <div class="page-nav"><button class="btn btn-ghost" data-go="builder">← صانع الوصيّة</button><button class="btn btn-primary" data-go="customs">المحور التالي: وصية الأقرب والخاتمة ←</button></div>
+      </section>
+
+      <!-- ================= 10. وصية الأقرب والخاتمة ================= -->
+      <section class="page" id="customs">
+        <div class="page-head">
+          <span class="kicker">المحور العاشر</span>
+          <h2>وصية الأقرب والخاتمة</h2>
+          <p>أوجب الوصايا، ثم أعرافٌ متوارَثةٌ تُوجَّه بالمقصد، ثم دورُ الوصية في إحياء المشاريع الخيرية.</p>
+        </div>
+
+        <div class="section-head"><div><span class="kicker">فرضٌ بكتاب الله</span><h2>وصية الأقرب</h2></div><span class="counter">أوجب الوصايا</span></div>
+        <div class="grid-2">
+          <div class="card accent-card">
+            <h3>التعريف والدليل</h3>
+            <p>نصيبٌ من المال يوصي به المسلم ليُعطى بعد موته لأقاربه الذين لا يرثونه. ثبتت بنصّ القرآن: ﴿كُتِبَ عَلَيْكُمْ إِذَا حَضَرَ أَحَدَكُمُ الْمَوْتُ إِن تَرَكَ خَيْرًا الْوَصِيَّةُ لِلْوَالِدَيْنِ وَالْأَقْرَبِينَ بِالْمَعْرُوفِ حَقًّا عَلَى الْمُتَّقِينَ﴾.</p>
+            <p>وقوله «كُتِب» بمعنى فُرض، وخُتمت الآية بـ«حقّاً على المتقين». وحديث «لا وصية لوارث» خصّ من يرث، وبقي وجوبها لمن لا يرث.</p>
+            <div class="mini-note">قال القطب: «وإنّ وصية الأقرب واجبة، فمن لم يوصِ بها وقد ترك خيراً هلك»، أي ختم عمله بمعصية.</div>
+          </div>
+          <div class="card">
+            <h3>لمن تُصرف؟ وكيف تُقسَم؟</h3>
+            <ul class="check-list">
+              <li>الوالدان إن كانا مسلمين فهما يرثان فلا وصية لهما؛ وإن لم يكونا مسلمين أو منعَهما مانعٌ جازت لهما الوصية.</li>
+              <li>يُعمَّم القول عند كثير من العلماء لكل من أدلى إلى الموصي بنسبٍ ورحمٍ، من الفروع والأصول، ولا يُقاس بالميراث.</li>
+              <li>تُقسَم بالسوية: لا فرق بين ذكر وأنثى، ولا بين قريب وبعيد، ولا بين صغير وكبير، ولا بين غني وفقير.</li>
+              <li>إن لم تكفِ لجميع الأقارب قُسمت على الأقرب، وتُقطع إذا انتهت إلى حدٍ يُنتفع به.</li>
+              <li>المستحسن عند القطب الإيصاءُ بشيء من الأصول: «فالأرض أولى ثم الدار ونحوها ثم الشجر والنخل».</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-head"><div><span class="kicker">جرب بنفسك</span><h2>حاسبة قسمة وصية الأقرب</h2></div></div>
+        <div class="card calculator">
+          <div class="calc-grid">
+            <label>مبلغ الوصية للأقرب (دج)<input type="number" id="relativeAmount" min="0" step="1000" value="100000"></label>
+            <label>عدد الأقارب المستحقين<input type="number" id="relativeCount" min="1" step="1" value="5"></label>
+          </div>
+          <div class="calc-result" id="relativeResult" aria-live="polite"></div>
+          <div class="mini-note">الحساب تعليميّ على القول بالتسوية؛ وبيانُ من يُعدّ قريباً ومقدارُ ما يُجزئ من الوصية يُرجَع فيه إلى أهل العلم.</div>
+        </div>
+
+        <div class="section-head"><div><span class="kicker">من واقع المجتمع</span><h2>مسائل من عُرف أهل وادي مزاب</h2></div></div>
+        <div class="custom-accordion">
+          <details open><summary>١ · وصية الوالدين للولد البالغ</summary><div>تُكتب عند بلوغ سنّ التكليف، ويسمّونها «وصية الوالدين». حكمها غير واجب، بل مستحسَنةٌ تربوية: تعليمٌ للولد بوجوب الوصية، وتذكيرٌ بصفحته البيضاء، وتوطينٌ على الاستقامة. وهي تبرّعٌ من الوالدين لأن الولد لا مال له ولا تباعة؛ وتكون واجبةً على البالغ إن كان له مال. ولا بدّ أن يجلس الوالدان معه ليبيّنا له المقصد.</div></details>
+          <details><summary>٢ · الوصية لشاهدي الجنازة وعشاء القبر</summary><div>كتوزيع التمر أو الخبز أو شيء من النقود على من شهد الجنازة، و«عشاء القبر» وجبةٌ يُدعى إليها من شهدها. مقصدها البرّ والإحسان والصلة، ولا حرج فيها ما لم تعارض الشرع.</div></details>
+          <details><summary>٣ · عشاء قرّاء القرآن</summary><div>وصيةٌ بوجبات عشاء لمن يقرأ ما تيسّر من القرآن في ليالٍ معدودة. قد يظنّها بعضُهم من إطعام المعزّين، وهي في الواقع تُصرَف من مال الموصي، فالفرق بينهما فارق.</div></details>
+          <details><summary>٤ · شاة فكّ الأعضاء</summary><div>صدقةٌ وقربةٌ يُقصد بها العوض عن عتق الرقبة نفلاً، لا كفارةً. تُعطى لثلاثة متولّين فصاعداً إلى ثمانية عند القطب. <strong>تنبيه:</strong> ليس للميت قيدٌ تُفكّه هذه الشاة؛ فالمصير يتقرّر بما قدّمه في حياته من استقامة وتوبة، لا بالوصية مهما كثُرت.</div></details>
+          <details><summary>٥ · شاة القرعات</summary><div>مقدارٌ من اللحم يُوزَّع هديةً للخلطاء من أقارب وجيران وشركاء ومعاشرين، رمزاً لطلب الصفح عمّا عسى أن يكون من تقصير. أمّا إذا ثبتت مظلمةٌ لأحدهم وجب بعد التوبة محاللته وردّ مظلمته، ولا يُغنيه لحمٌ يُهدى بعد موته مع إصراره على الظلم.</div></details>
+          <details><summary>٦ · التنصّل والتكفير والاحتياط</summary><div>كالوصية بدينار الفراش، ودية قصّ اللحية والناصية، واحتياط الزكاة، والتنصّل من أموال الناس، والكفّارات المغلّظات والمرسلات. ولا يُفضح الموصي نفسه بذكر سببها، بل يقول: «وأوصيتُ بكذا وكذا للفقراء والمساكين».</div></details>
+          <details><summary>٧ · الوصية للضعفاء والمساكين</summary><div>تُصرَف للفقراء والمساكين وذوي الحاجة، تتجاوب مع آيات الإنفاق: ﴿وَآتَى الْمَالَ عَلَىٰ حُبِّهِ ذَوِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينَ﴾. قال تعالى: ﴿وَالَّذِينَ فِي أَمْوَالِهِمْ حَقٌّ لِّلسَّائِلِ وَالْمَحْرُومِ﴾.</div></details>
+        </div>
+
+        <div class="section-head"><div><span class="kicker">الخاتمة</span><h2>إحياء دور الوصية في المجتمع</h2></div></div>
+        <div class="grid-3">
+          <div class="card"><span class="q-ico">١</span><h3>أخرجها في الحياة</h3><p>كانت وصايا المحسنين منشأً لكثير من الأوقاف، ومورداً لدعم الدعوة والقرآن وعلوم الدين. ونحن أبناء هذا الزمان، مسؤولون عن بناء هذا الدور من جديد كلٌّ بما يستطيع.</p></div>
+          <div class="card"><span class="q-ico">٢</span><h3>اجعل لها نصيباً معتبراً</h3><p>ليُفرض جزءٌ معتبرٌ من ثلث التركة لدعم المشاريع الخيرية: المنشآت الدينية والاجتماعية والمؤسسات التعليمية؛ فالإنفاق عليها من الصدقة الجارية، وهو إنفاقٌ في صميم رسالة الإسلام.</p></div>
+          <div class="card"><span class="q-ico">٣</span><h3>أشهد الورثة وأعلِمهم</h3><p>أفضل صيغة لدعم المشاريع بالثلث: إخراج ذلك في حال الحياة، وإشهاد الورثة على الوصية وإعلامهم بها، حتى لا يكون عدم علمهم ذريعةً لإنكارها أو التملّص منها.</p></div>
+        </div>
+        <div class="callout final-callout"><strong>الخلاصة</strong><p>الوصية قربةٌ وطاعة، وسيلةٌ لأداء الحقوق، وامتدادٌ للأجر بعد الموت. لكنها لا تصلح الآخرة وحدها؛ فالاستقامة والتوبة مع الوصية الصالحة هي السبيل، قال تعالى: ﴿إِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّئَاتِ﴾.</p></div>
+        <div class="page-nav"><button class="btn btn-ghost" data-go="spiritual">← التوبة والوصية الروحية</button><button class="btn btn-primary" data-go="quiz">اختبر معرفتك ←</button></div>
       </section>
 
       <!-- ================= الاختبار ================= -->
@@ -598,7 +732,7 @@
         <div class="page-head">
           <span class="kicker">أداة مساندة</span>
           <h2>اختبار المعرفة</h2>
-          <p>ثمانية عشر سؤالاً من نصوص الكتاب، مع تعقيبٍ يوضّح كل إجابة.</p>
+          <p>خمسة وعشرون سؤالاً من نصوص الكتاب، مع تعقيبٍ يوضّح كل إجابة.</p>
         </div>
         <div class="card quiz-intro" id="quizIntro">
           <span class="quiz-emoji">🧠</span>
@@ -649,7 +783,7 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <noscript><div class="noscript">يرجى تفعيل JavaScript لاستخدام التطبيق التفاعلي.</div></noscript>
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/data.js?v=1.1.0"></script>
+  <script src="js/app.js?v=1.1.0"></script>
 </body>
 </html>

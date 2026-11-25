@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>إطلالات على فقه التركات | مشروع رسوخ — مدرسة أبي سالم تجنيت</title>
+  <title>فقه الوصايا والمواريث | مشروع رسوخ — مدرسة أبي سالم تجنينت</title>
   <meta name="description" content="تطبيق تكويني تفاعلي يعمل دون إنترنت في فقه الوصايا والمواريث وتصفية التركات: أحكام ومقاصد، كفارات، حقوق والتزامات، وكيل الوصية، مدخل المواريث، حاسبة التركات، وصانع وصية نموذجية مع شهادة تخرج.">
   <meta name="keywords" content="فقه التركات, الوصية الشرعية, المواريث, تصفية التركات, الكفارات, مشروع رسوخ, مدرسة أبي سالم تجنيت, ح قاسم بن ح عمر حاج امحمد">
   <meta name="theme-color" content="#0d5548">
@@ -487,6 +487,60 @@ tbody tr:hover { background: var(--surface-3); }
 .toast.show { opacity: 1; transform: none; }
 .noscript { position: fixed; inset: 0; display: grid; place-items: center; background: var(--bg); color: var(--ink); z-index: 300; font-size: 18px; }
 
+/* ============ بحث الموقع ============ */
+.search-wrap { position: relative; display: flex; align-items: center; }
+.search-wrap input {
+  width: 210px; height: 38px; padding: 0 36px 0 12px; border-radius: 11px;
+  border: 1px solid var(--border); background: var(--surface-3); color: var(--ink); font-size: 12.5px; transition: .2s;
+}
+.search-wrap input:focus { width: 270px; border-color: var(--primary-2); outline: none; background: var(--surface); box-shadow: 0 0 0 3px var(--primary-soft); }
+.search-ico { position: absolute; inset-inline-end: 11px; font-size: 14px; pointer-events: none; opacity: .7; }
+.search-results {
+  position: absolute; inset-block-start: 45px; inset-inline-end: 0; width: min(430px, 88vw); max-height: 420px; overflow: auto;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 15px; box-shadow: var(--shadow); padding: 8px; z-index: 100;
+}
+.search-results[hidden] { display: none; }
+.search-result { display: block; width: 100%; text-align: start; border: 0; background: transparent; color: var(--ink); padding: 9px 11px; border-radius: 10px; font-size: 13px; }
+.search-result:hover, .search-result:focus { background: var(--primary-soft); }
+.search-result small { display: block; color: var(--muted); font-size: 11px; line-height: 1.6; margin-block-start: 2px; }
+.search-empty { padding: 14px; text-align: center; color: var(--muted); font-size: 13px; }
+
+/* ============ المحور التاسع: التوبة ============ */
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.tawba-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.tawba-step {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-align: start;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 15px; padding: 14px;
+  color: var(--ink); transition: .2s; box-shadow: var(--shadow-sm);
+}
+.tawba-step:hover { transform: translateY(-3px); border-color: var(--gold); }
+.tawba-step.active { background: linear-gradient(145deg, var(--primary-soft), var(--surface)); border-color: var(--primary-2); }
+.tawba-step span { font-family: var(--font-head); font-size: 19px; color: var(--gold); font-weight: 900; }
+.tawba-step strong { font-size: 15px; font-family: var(--font-head); }
+.tawba-step small { font-size: 11.5px; color: var(--muted); line-height: 1.7; }
+.tawba-detail { margin-block-start: 12px; border-inline-start: 4px solid var(--gold); }
+.tawba-detail h3 { margin: 0 0 6px; color: var(--primary); font-family: var(--font-head); font-size: 17px; }
+.tawba-detail p { margin: 0; font-size: 14px; }
+.risk-card { border-block-start: 3px solid var(--gold); }
+.risk-ico { font-size: 24px; }
+
+/* ============ المحور العاشر: الأقرب والأعراف ============ */
+.custom-accordion { display: grid; gap: 10px; }
+.custom-accordion details {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 0 16px; box-shadow: var(--shadow-sm); overflow: hidden;
+}
+.custom-accordion details[open] { border-color: var(--primary-2); }
+.custom-accordion summary {
+  cursor: pointer; font-weight: 800; font-family: var(--font-head); font-size: 14.5px;
+  padding: 14px 0; color: var(--primary); list-style: none; display: flex; align-items: center; gap: 10px;
+}
+.custom-accordion summary::-webkit-details-marker { display: none; }
+.custom-accordion summary::before { content: "＋"; color: var(--gold); font-size: 17px; }
+.custom-accordion details[open] summary::before { content: "－"; }
+.custom-accordion details > div { padding: 0 0 16px 26px; font-size: 13.5px; color: var(--ink); line-height: 1.9; }
+.final-callout { border-inline-start-color: var(--gold); background: linear-gradient(120deg, var(--gold-soft), var(--surface)); }
+
 /* ============ الطباعة ============ */
 @media print {
   :root { --surface: #fff; --ink: #111; --border: #ccc; --shadow: none; --shadow-sm: none; }
@@ -515,8 +569,11 @@ tbody tr:hover { background: var(--surface-3); }
   .sidebar.open { transform: translateX(0); }
   .drawer-overlay.show { display: block; position: fixed; inset: 0; background: rgba(0,0,0,.42); z-index: 70; }
   .main { margin-inline-start: 0; }
-  .calc-grid, .form-grid, .about-grid { grid-template-columns: 1fr; }
+  .calc-grid, .form-grid, .about-grid, .grid-3 { grid-template-columns: 1fr; }
+  .tawba-flow { grid-template-columns: repeat(2, 1fr); }
   .net-pill { display: none; }
+  .search-wrap input { width: 150px; }
+  .search-wrap input:focus { width: 190px; }
 }
 @media (max-width: 680px) {
   body { font-size: 15px; }
@@ -525,7 +582,9 @@ tbody tr:hover { background: var(--surface-3); }
   .brand-text strong { font-size: 13px; }
   .brand-mark { width: 32px; height: 32px; }
   .icon-btn { width: 34px; height: 34px; }
-  .quick-rules, .grid-2, .split, .split-cards, .feature-grid, .error-grid, .agent-grid, .glossary-grid, .source-list, .ban-grid, .criteria-grid, .syllabus-grid, .flip-grid, .result-grid { grid-template-columns: 1fr; }
+  .quick-rules, .grid-2, .grid-3, .split, .split-cards, .feature-grid, .error-grid, .agent-grid, .glossary-grid, .source-list, .ban-grid, .criteria-grid, .syllabus-grid, .flip-grid, .result-grid, .tawba-flow { grid-template-columns: 1fr; }
+  .search-wrap input, .search-wrap input:focus { width: 118px; }
+  .search-results { inset-inline-end: -46px; }
   .module-grid, .structure-grid, .cases-grid, .tips-list { grid-template-columns: 1fr; }
   .hero { padding: 22px; border-radius: 20px; }
   .hero h1 { font-size: 25px; }
@@ -566,6 +625,11 @@ tbody tr:hover { background: var(--surface-3); }
       </div>
     </div>
     <div class="top-actions">
+      <div class="search-wrap" role="search">
+        <input id="siteSearch" type="search" placeholder="ابحث في المحاور…" aria-label="بحث في محاور التطبيق" autocomplete="off">
+        <span class="search-ico" aria-hidden="true">🔎</span>
+        <div class="search-results" id="searchResults" hidden></div>
+      </div>
       <span class="net-pill" id="netPill" title="حالة الاتصال"><i></i><span>متصل</span></span>
       <button class="icon-btn" id="themeBtn" aria-label="تبديل الوضع الليلي" title="الوضع الليلي">🌙</button>
       <button class="icon-btn" id="printBtn" aria-label="طباعة الصفحة" title="طباعة">🖨️</button>
@@ -581,7 +645,7 @@ tbody tr:hover { background: var(--surface-3); }
       <div class="side-progress">
         <div class="side-progress-top"><span>تقدّم التكوين</span><strong id="sidePct">0%</strong></div>
         <div class="progress-track"><div class="progress-fill" id="sideBar"></div></div>
-        <small id="sideHint">أكمل المحاور الثمانية لتحصل على شهادة التخرّج</small>
+        <small id="sideHint">أكمل المحاور العشرة لتحصل على شهادة التخرّج</small>
       </div>
 
       <div class="nav-label">مسار التكوين</div>
@@ -594,6 +658,8 @@ tbody tr:hover { background: var(--surface-3); }
       <button class="nav-item" data-page="mirath"><span class="nav-ico">🧮</span><span>مدخل المواريث</span></button>
       <button class="nav-item" data-page="tafdiya"><span class="nav-ico">🧾</span><span>تصفية التركات</span></button>
       <button class="nav-item nav-special" data-page="builder"><span class="nav-ico">✍️</span><span>صانع الوصيّة</span><em>تخرّج</em></button>
+      <button class="nav-item" data-page="spiritual"><span class="nav-ico">🕊️</span><span>التوبة والوصية الروحية</span></button>
+      <button class="nav-item" data-page="customs"><span class="nav-ico">🌿</span><span>وصية الأقرب والخاتمة</span></button>
 
       <div class="nav-label">أدوات مساندة</div>
       <button class="nav-item" data-page="quiz"><span class="nav-ico">🧠</span><span>اختبار المعرفة</span></button>
@@ -664,7 +730,7 @@ tbody tr:hover { background: var(--surface-3); }
         </div>
 
         <div class="section-head">
-          <div><span class="kicker">مسار التكوين</span><h2>ثمانية محاور... من الفهم إلى التخرّج</h2></div>
+          <div><span class="kicker">مسار التكوين</span><h2>عشرة محاور... من الفهم إلى التخرّج</h2></div>
           <span class="counter" id="homeCounter">٠ / ٨ منجز</span>
         </div>
         <div class="module-grid" id="moduleGrid"></div>
@@ -1111,9 +1177,136 @@ tbody tr:hover { background: var(--surface-3); }
 
         <div class="notice">
           <span class="notice-ico">✍️</span>
-          <div><strong>شهادة التخرّج</strong><p>تُمنح الشهادة بعد إنشاء الوصية واستكمال المحاور الثمانية. احتفظ بنسخة منها ومن نصّ الوصية، وراجع جهة التوثيق المختصّة لتصير الوصية قابلة للتنفيذ قانوناً.</p></div>
+          <div><strong>شهادة التخرّج</strong><p>تُمنح الشهادة بعد إنشاء الوصية واستكمال المحاور العشرة. احتفظ بنسخة منها ومن نصّ الوصية، وراجع جهة التوثيق المختصّة لتصير الوصية قابلة للتنفيذ قانوناً.</p></div>
         </div>
         <div class="page-nav"><button class="btn btn-ghost" data-go="tafdiya">← تصفية التركات</button><button class="btn btn-primary" data-go="quiz">اختبر معرفتك ←</button></div>
+      </section>
+
+      <!-- ================= 9. التوبة والوصية الروحية ================= -->
+      <section class="page" id="spiritual">
+        <div class="page-head">
+          <span class="kicker">المحور التاسع</span>
+          <h2>التوبة والوصية الروحية</h2>
+          <p>الجوهر قبل الصيغة: ما يمحو الذنب هو التوبة، والوصية وسيلةٌ لأداء الحقوق لا ضمانٌ للنجاة.</p>
+        </div>
+
+        <div class="callout">
+          <strong>قاعدة هذا المحور</strong>
+          <p>ما يرجوه الموصي هو رضوان الله، وهذا لا يتحقق إلا بمغفرة الذنوب والتوبة عليه. فالتوبة أولُ ما يبادر إليه الموصي قبل كتابة أي حرف من وصيته؛ فالوصية مع الإصرار على المعصية عملٌ غير صالح لا يُقبل.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card accent-card">
+            <h3>الإيصاء بحقوق الله والعباد</h3>
+            <p>يجب على المسلم أن يُوصي بما تعلّق بذمته من حقوق الله: فريضة الحج، أو النذر، أو الكفارة، أو زكاة مال، إذا قصّر في أدائها أو لم يتمكن بلا تقصير.</p>
+            <p>ويجب كذلك الإيصاء بحقوق العباد: دينٌ، أو أمانة، أو ضمانُ إتلافٍ أو سرقةٍ أو مظلمةٍ، مع التوبة النصوح والمحاللة لصاحب المظلمة.</p>
+            <div class="mini-note">ويكون الإيصاء على نية الصفة المرحلية المؤقتة؛ فمتى استطاع أداءها في حياته بادر إليها، ولا يتركها للورثة متهاوناً.</div>
+          </div>
+          <div class="card">
+            <h3>هل يُنتفع بأجور الأعمال بعد الموت؟</h3>
+            <p>نعم، لمن مات موفياً بدين الله تائباً راجعاً إليه: ﴿إِنَّا نَحْنُ نُحْيِي الْمَوْتَىٰ وَنَكْتُبُ مَا قَدَّمُوا وَآثَارَهُمْ﴾ [يس ١٢]. وأمّا ﴿وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ﴾ فهي عامةٌ مخصوصةٌ بالسنة الصحيحة.</p>
+            <div class="hadith"><p>«إن الله تصدّق عليكم عند وفاتكم بثلث أموالكم زيادةً في أعمالكم».</p><small>رواه ابن ماجة</small></div>
+            <div class="hadith"><p>«إذا مات ابن آدم انقطع عمله إلا من ثلاث: صدقةٌ جارية، أو علمٌ يُنتفع به، أو ولدٌ صالحٌ يدعو له».</p><small>رواه مسلم</small></div>
+          </div>
+        </div>
+
+        <div class="section-head"><div><span class="kicker">اضغط لتفاصيل كل خطوة</span><h2>حقيقة التوبة النصوح</h2></div><span class="counter">٤ خطوات متلازمة</span></div>
+        <div class="tawba-flow" id="tawbaFlow">
+          <button class="tawba-step active" type="button" data-t="ندمٌ"><span>١</span><strong>الندم</strong><small>شعورٌ بالتقصير في جنب الله</small></button>
+          <button class="tawba-step" type="button" data-t="إقلاعٌ"><span>٢</span><strong>الإقلاع</strong><small>ترك الذنب وقطع الإصرار</small></button>
+          <button class="tawba-step" type="button" data-t="استغفارٌ"><span>٣</span><strong>الاستغفار</strong><small>رجوعٌ واعترافٌ بين يديه</small></button>
+          <button class="tawba-step" type="button" data-t="استقامة"><span>٤</span><strong>الاستقامة</strong><small>صدقٌ في الالتزام والعمل الصالح</small></button>
+        </div>
+        <div class="card tawba-detail" id="tawbaDetail" aria-live="polite"></div>
+
+        <div class="section-head"><div><span class="kicker">مواطن دقيقة</span><h2>الإصرار، القنوط، والستر</h2></div></div>
+        <div class="grid-3">
+          <div class="card risk-card">
+            <span class="risk-ico">⚠️</span><h3>خطر الإصرار</h3>
+            <p>التمادي على الذنب والإقامة عليه يُطبع على القلب، ويجعله منافياً للتقوى وصفات المتقين. قال تعالى: ﴿بَلْ رَانَ عَلَىٰ قُلُوبِهِم مَّا كَانُوا يَكْسِبُونَ﴾.</p>
+            <div class="mini-note">﴿وَالَّذِينَ إِذَا فَعَلُوا فَاحِشَةً أَوْ ظَلَمُوا أَنفُسَهُمْ ذَكَرُوا اللَّهَ فَاسْتَغْفَرُوا لِذُنُوبِهِمْ وَلَمْ يُصِرُّوا عَلَىٰ مَا فَعَلُوا وَهُمْ يَعْلَمُونَ﴾.</div>
+          </div>
+          <div class="card risk-card">
+            <span class="risk-ico">🌅</span><h3>خطر القنوط</h3>
+            <p>لا يجوز للمذنب أن ييأس من رحمة الله مهما أكثر السيئات؛ بل عليه أن يرجع تائباً منيباً معترفاً نادماً.</p>
+            <div class="mini-note">﴿قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ﴾ [الزمر ٥٣]. بل يبدّل الله سيئاتهم حسنات.</div>
+          </div>
+          <div class="card risk-card">
+            <span class="risk-ico">🤫</span><h3>الستر على العاصي</h3>
+            <p>من فقه التوبة ألا يُفشي العاصي ذنبه، وألا يكشف غيرُه ما علمه من معصيته، لأن في ذلك تعريضاً للتهمة ونشراً للفاحشة.</p>
+            <div class="mini-note">﴿إِنَّ الَّذِينَ يُحِبُّونَ أَن تَشِيعَ الْفَاحِشَةُ فِي الَّذِينَ آمَنُوا لَهُمْ عَذَابٌ أَلِيمٌ﴾ [النور ١٩].</div>
+          </div>
+        </div>
+
+        <div class="section-head"><div><span class="kicker">متى يُرفع الستر؟</span><h2>استثناءات الإعلان بالتوبة</h2></div></div>
+        <div class="card">
+          <ul class="check-list">
+            <li>إذا كانت المعصية <strong>في العلن</strong>؛ فإن إعلان التوبة يكون جبراً لما أُفسد في العلن.</li>
+            <li>إذا <strong>اشترك آخرون</strong> في اقترافها؛ فإن توبته تُعلَن لهم.</li>
+            <li>إذا <strong>ترتبت عليها مظالم للعباد</strong>؛ فيلزم إعلان التوبة لأولئك مع ردّ المظالم، تبرئةً لذمته وصوناً لعرضه.</li>
+          </ul>
+          <div class="hadith"><p>«الذنب ذنبان: ذنب بين العبد وربه، وذنب بين العبد وصاحبه. أما الذي بين العبد وربه فمن تاب منه كمن لا ذنب له، والذي بين العبد وصاحبه فلا توبة منه حتى يردّ المظالم».</p><small>رواه الإمام الربيع بن حبيب</small></div>
+        </div>
+        <div class="page-nav"><button class="btn btn-ghost" data-go="builder">← صانع الوصيّة</button><button class="btn btn-primary" data-go="customs">المحور التالي: وصية الأقرب والخاتمة ←</button></div>
+      </section>
+
+      <!-- ================= 10. وصية الأقرب والخاتمة ================= -->
+      <section class="page" id="customs">
+        <div class="page-head">
+          <span class="kicker">المحور العاشر</span>
+          <h2>وصية الأقرب والخاتمة</h2>
+          <p>أوجب الوصايا، ثم أعرافٌ متوارَثةٌ تُوجَّه بالمقصد، ثم دورُ الوصية في إحياء المشاريع الخيرية.</p>
+        </div>
+
+        <div class="section-head"><div><span class="kicker">فرضٌ بكتاب الله</span><h2>وصية الأقرب</h2></div><span class="counter">أوجب الوصايا</span></div>
+        <div class="grid-2">
+          <div class="card accent-card">
+            <h3>التعريف والدليل</h3>
+            <p>نصيبٌ من المال يوصي به المسلم ليُعطى بعد موته لأقاربه الذين لا يرثونه. ثبتت بنصّ القرآن: ﴿كُتِبَ عَلَيْكُمْ إِذَا حَضَرَ أَحَدَكُمُ الْمَوْتُ إِن تَرَكَ خَيْرًا الْوَصِيَّةُ لِلْوَالِدَيْنِ وَالْأَقْرَبِينَ بِالْمَعْرُوفِ حَقًّا عَلَى الْمُتَّقِينَ﴾.</p>
+            <p>وقوله «كُتِب» بمعنى فُرض، وخُتمت الآية بـ«حقّاً على المتقين». وحديث «لا وصية لوارث» خصّ من يرث، وبقي وجوبها لمن لا يرث.</p>
+            <div class="mini-note">قال القطب: «وإنّ وصية الأقرب واجبة، فمن لم يوصِ بها وقد ترك خيراً هلك»، أي ختم عمله بمعصية.</div>
+          </div>
+          <div class="card">
+            <h3>لمن تُصرف؟ وكيف تُقسَم؟</h3>
+            <ul class="check-list">
+              <li>الوالدان إن كانا مسلمين فهما يرثان فلا وصية لهما؛ وإن لم يكونا مسلمين أو منعَهما مانعٌ جازت لهما الوصية.</li>
+              <li>يُعمَّم القول عند كثير من العلماء لكل من أدلى إلى الموصي بنسبٍ ورحمٍ، من الفروع والأصول، ولا يُقاس بالميراث.</li>
+              <li>تُقسَم بالسوية: لا فرق بين ذكر وأنثى، ولا بين قريب وبعيد، ولا بين صغير وكبير، ولا بين غني وفقير.</li>
+              <li>إن لم تكفِ لجميع الأقارب قُسمت على الأقرب، وتُقطع إذا انتهت إلى حدٍ يُنتفع به.</li>
+              <li>المستحسن عند القطب الإيصاءُ بشيء من الأصول: «فالأرض أولى ثم الدار ونحوها ثم الشجر والنخل».</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-head"><div><span class="kicker">جرب بنفسك</span><h2>حاسبة قسمة وصية الأقرب</h2></div></div>
+        <div class="card calculator">
+          <div class="calc-grid">
+            <label>مبلغ الوصية للأقرب (دج)<input type="number" id="relativeAmount" min="0" step="1000" value="100000"></label>
+            <label>عدد الأقارب المستحقين<input type="number" id="relativeCount" min="1" step="1" value="5"></label>
+          </div>
+          <div class="calc-result" id="relativeResult" aria-live="polite"></div>
+          <div class="mini-note">الحساب تعليميّ على القول بالتسوية؛ وبيانُ من يُعدّ قريباً ومقدارُ ما يُجزئ من الوصية يُرجَع فيه إلى أهل العلم.</div>
+        </div>
+
+        <div class="section-head"><div><span class="kicker">من واقع المجتمع</span><h2>مسائل من عُرف أهل وادي مزاب</h2></div></div>
+        <div class="custom-accordion">
+          <details open><summary>١ · وصية الوالدين للولد البالغ</summary><div>تُكتب عند بلوغ سنّ التكليف، ويسمّونها «وصية الوالدين». حكمها غير واجب، بل مستحسَنةٌ تربوية: تعليمٌ للولد بوجوب الوصية، وتذكيرٌ بصفحته البيضاء، وتوطينٌ على الاستقامة. وهي تبرّعٌ من الوالدين لأن الولد لا مال له ولا تباعة؛ وتكون واجبةً على البالغ إن كان له مال. ولا بدّ أن يجلس الوالدان معه ليبيّنا له المقصد.</div></details>
+          <details><summary>٢ · الوصية لشاهدي الجنازة وعشاء القبر</summary><div>كتوزيع التمر أو الخبز أو شيء من النقود على من شهد الجنازة، و«عشاء القبر» وجبةٌ يُدعى إليها من شهدها. مقصدها البرّ والإحسان والصلة، ولا حرج فيها ما لم تعارض الشرع.</div></details>
+          <details><summary>٣ · عشاء قرّاء القرآن</summary><div>وصيةٌ بوجبات عشاء لمن يقرأ ما تيسّر من القرآن في ليالٍ معدودة. قد يظنّها بعضُهم من إطعام المعزّين، وهي في الواقع تُصرَف من مال الموصي، فالفرق بينهما فارق.</div></details>
+          <details><summary>٤ · شاة فكّ الأعضاء</summary><div>صدقةٌ وقربةٌ يُقصد بها العوض عن عتق الرقبة نفلاً، لا كفارةً. تُعطى لثلاثة متولّين فصاعداً إلى ثمانية عند القطب. <strong>تنبيه:</strong> ليس للميت قيدٌ تُفكّه هذه الشاة؛ فالمصير يتقرّر بما قدّمه في حياته من استقامة وتوبة، لا بالوصية مهما كثُرت.</div></details>
+          <details><summary>٥ · شاة القرعات</summary><div>مقدارٌ من اللحم يُوزَّع هديةً للخلطاء من أقارب وجيران وشركاء ومعاشرين، رمزاً لطلب الصفح عمّا عسى أن يكون من تقصير. أمّا إذا ثبتت مظلمةٌ لأحدهم وجب بعد التوبة محاللته وردّ مظلمته، ولا يُغنيه لحمٌ يُهدى بعد موته مع إصراره على الظلم.</div></details>
+          <details><summary>٦ · التنصّل والتكفير والاحتياط</summary><div>كالوصية بدينار الفراش، ودية قصّ اللحية والناصية، واحتياط الزكاة، والتنصّل من أموال الناس، والكفّارات المغلّظات والمرسلات. ولا يُفضح الموصي نفسه بذكر سببها، بل يقول: «وأوصيتُ بكذا وكذا للفقراء والمساكين».</div></details>
+          <details><summary>٧ · الوصية للضعفاء والمساكين</summary><div>تُصرَف للفقراء والمساكين وذوي الحاجة، تتجاوب مع آيات الإنفاق: ﴿وَآتَى الْمَالَ عَلَىٰ حُبِّهِ ذَوِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينَ﴾. قال تعالى: ﴿وَالَّذِينَ فِي أَمْوَالِهِمْ حَقٌّ لِّلسَّائِلِ وَالْمَحْرُومِ﴾.</div></details>
+        </div>
+
+        <div class="section-head"><div><span class="kicker">الخاتمة</span><h2>إحياء دور الوصية في المجتمع</h2></div></div>
+        <div class="grid-3">
+          <div class="card"><span class="q-ico">١</span><h3>أخرجها في الحياة</h3><p>كانت وصايا المحسنين منشأً لكثير من الأوقاف، ومورداً لدعم الدعوة والقرآن وعلوم الدين. ونحن أبناء هذا الزمان، مسؤولون عن بناء هذا الدور من جديد كلٌّ بما يستطيع.</p></div>
+          <div class="card"><span class="q-ico">٢</span><h3>اجعل لها نصيباً معتبراً</h3><p>ليُفرض جزءٌ معتبرٌ من ثلث التركة لدعم المشاريع الخيرية: المنشآت الدينية والاجتماعية والمؤسسات التعليمية؛ فالإنفاق عليها من الصدقة الجارية، وهو إنفاقٌ في صميم رسالة الإسلام.</p></div>
+          <div class="card"><span class="q-ico">٣</span><h3>أشهد الورثة وأعلِمهم</h3><p>أفضل صيغة لدعم المشاريع بالثلث: إخراج ذلك في حال الحياة، وإشهاد الورثة على الوصية وإعلامهم بها، حتى لا يكون عدم علمهم ذريعةً لإنكارها أو التملّص منها.</p></div>
+        </div>
+        <div class="callout final-callout"><strong>الخلاصة</strong><p>الوصية قربةٌ وطاعة، وسيلةٌ لأداء الحقوق، وامتدادٌ للأجر بعد الموت. لكنها لا تصلح الآخرة وحدها؛ فالاستقامة والتوبة مع الوصية الصالحة هي السبيل، قال تعالى: ﴿إِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّئَاتِ﴾.</p></div>
+        <div class="page-nav"><button class="btn btn-ghost" data-go="spiritual">← التوبة والوصية الروحية</button><button class="btn btn-primary" data-go="quiz">اختبر معرفتك ←</button></div>
       </section>
 
       <!-- ================= الاختبار ================= -->
@@ -1121,7 +1314,7 @@ tbody tr:hover { background: var(--surface-3); }
         <div class="page-head">
           <span class="kicker">أداة مساندة</span>
           <h2>اختبار المعرفة</h2>
-          <p>ثمانية عشر سؤالاً من نصوص الكتاب، مع تعقيبٍ يوضّح كل إجابة.</p>
+          <p>خمسة وعشرون سؤالاً من نصوص الكتاب، مع تعقيبٍ يوضّح كل إجابة.</p>
         </div>
         <div class="card quiz-intro" id="quizIntro">
           <span class="quiz-emoji">🧠</span>
@@ -1182,17 +1375,17 @@ tbody tr:hover { background: var(--surface-3); }
    ============================================================ */
 
 const APP_INFO = {
-  title: "إطلالات على فقه التركات",
+  title: "فقه الوصايا والمواريث",
   subtitle: "دورة تكوينية تفاعلية في الوصايا والمواريث وتصفية التركات",
   school: "مدرسة أبي سالم تجنيت",
   project: "مشروع رسوخ",
   presenter: "ح قاسم بن ح عمر حاج امحمد",
   author: "إبراهيم بن عمر بورورو",
   madhhab: "المذهب الإباضي",
-  version: "1.0.0"
+  version: "1.1.0"
 };
 
-/* المحاور الثمانية */
+/* المحاور العشرة */
 const MODULES = [
   { id: "concept", n: "01", icon: "📖", title: "المدخل التصوري للوصيّة", short: "التعريف والمشروعية والمقاصد", desc: "معنى الوصية، فلسفة المال في الإسلام، ومميزات نظام التوريث." },
   { id: "rules", n: "02", icon: "⚖️", title: "أحكام الوصيّة ومقاصدها", short: "الحكم والحدود والتوجيهات", desc: "الوجوب، الثلث، ممنوعات الوصية، وتوجيهات كتابتها وهيكلها." },
@@ -1201,7 +1394,9 @@ const MODULES = [
   { id: "agent", n: "05", icon: "🤝", title: "الوكيل وأهليته", short: "من ينفّذ الوصية", desc: "شروط الوكيل، أجرته، مسؤوليته، وحدود مهمته في التنفيذ." },
   { id: "mirath", n: "06", icon: "🧮", title: "مدخل إلى علم المواريث", short: "الفروض والعصبة", desc: "أصول التقسيم، أصحاب الفروض والعصبة، ومسائل تطبيقية محلولة." },
   { id: "tafdiya", n: "07", icon: "🧾", title: "مدخل إلى تصفية التركات", short: "جرد وحقوق وتوزيع", desc: "مراتب الحقوق والمحاصصة، مع حاسبة تفاعلية لتصفية تركة." },
-  { id: "builder", n: "08", icon: "✍️", title: "التطبيق العملي والتخرّج", short: "وصيّتك النموذجية", desc: "صانع وصية متكامل يخرج لك بنصّ جاهز وشهادة تخرّج." }
+  { id: "builder", n: "08", icon: "✍️", title: "التطبيق العملي والتخرّج", short: "وصيّتك النموذجية", desc: "صانع وصية متكامل يخرج لك بنصّ جاهز وشهادة تخرّج." },
+  { id: "spiritual", n: "09", icon: "🕊️", title: "التوبة والوصية الروحية", short: "الجوهر قبل الصيغة", desc: "حقيقة التوبة، الإيصاء بحقوق الله والعباد، الستر، والإصرار والقنوط." },
+  { id: "customs", n: "10", icon: "🌿", title: "وصية الأقرب والخاتمة", short: "من الفرض إلى المقصد", desc: "وصية الأقرب، أعراف وادي مزاب، ودور الوصية في دعم المشاريع الخيرية." }
 ];
 
 /* مميزات نظام التوريث في الإسلام — الكتاب ص 2-3 */
@@ -1268,7 +1463,7 @@ const KAFFARAT = [
     id: "firash", icon: "🛏️", title: "كفارة الفراش", sub: "الوطء في حال الحيض",
     evidence: "رُوي عن النبي ﷺ مرفوعاً: أن الذي يأتي امرأته وهي حائض يتصدّق بدينار أو نصف دينار.",
     source: "رواه أبو داود وابن أبي شيبة",
-    steps: ["التصدّق بدينار أو نصف دينار", "الدينار الشرعي يزن ٤٫٢٥ غراماً", "قيل بSame الحكم للوطء في الدبر قياساً على اتحاد الحرمة"],
+    steps: ["التصدّق بدينار أو نصف دينار", "الدينار الشرعي يزن ٤٫٢٥ غراماً", "وقيل بالحكم نفسه للوطء في الدبر قياساً على اتحاد الحرمة"],
     note: "التنصّل بالمال لا يُغني عن التوبة إلى الله تعالى."
   },
   {
@@ -1405,7 +1600,14 @@ const QUIZ = [
   { q: "هل يجوز صرف الزكاة في تنفيذ الوصية؟", o: ["لا، الزكاة للأحياء وتُشترط فيها قبضٌ والميت لا ذمة له", "نعم، إذا قلّ مال التركة", "نعم، بشرط إعلام الورثة", "لا، إلا للوصية للأقرب"], c: 0, e: "الزكاة جُعلت لسدّ حاجات الأحياء لا الأموات، والميت لا ذمة له، ويُشترط في الزكاة القبض. (ص ٣٨)" },
   { q: "أفضل صيغة لتقدير مقادير الوصية:", o: ["النسب المئوية", "المبالغ النقدية", "عدد السلع", "وزن الذهب فقط"], c: 0, e: "النسبة المئوية أدوم؛ لأن قيمة النقد تتغيّر، فالعشرُ ثابتٌ زاد المال أو نقص. (ص ٣٤-٣٥)" },
   { q: "حكم وصية الوالدين للولد البالغ في عُرف وادي مزاب:", o: ["مستحسَنة تعليمية تربوية", "واجبة شرعاً", "محرّمة", "بدعة"], c: 0, e: "هي تربيةٌ وتذكيرٌ بالوصية ومقصدها، وتُعدّ تبرّعاً من الوالدين؛ وتكون واجبة إن كان للبالغ مالٌ أو تباعة. (ص ٢٩)" },
-  { q: "الإضرار في الوصية:", o: ["من كبائر الذنوب", "جائز إذا رضي الورثة بعد الوفاة", "مكروه فقط", "لا حكم له"], c: 0, e: "قال تعالى: ﴿مِن بَعْدِ وَصِيَّةٍ يُوصَى بِهَا أَوْ دَيْنٍ غَيْرَ مُضَارٍّ﴾، وثبت أن الإضرار فيها من الكبائر. (ص ٣٣)" }
+  { q: "الإضرار في الوصية:", o: ["من كبائر الذنوب", "جائز إذا رضي الورثة بعد الوفاة", "مكروه فقط", "لا حكم له"], c: 0, e: "قال تعالى: ﴿مِن بَعْدِ وَصِيَّةٍ يُوصَى بِهَا أَوْ دَيْنٍ غَيْرَ مُضَارٍّ﴾، وثبت أن الإضرار فيها من الكبائر. (ص ٣٣)" },
+  { q: "ما حقيقة التوبة النصوح كما بيّنها الكتاب؟", o: ["إطعام المساكين", "ندمٌ وإقلاعٌ واستغفارٌ واستقامة", "كتابة الوصية", "إعلان الذنب للناس"], c: 1, e: "التوبة: ندمٌ مصحوبٌ بالشعور بالتقصير، يعقبه الإقلاع والاستغفار، مع الصدق في الالتزام بالاستقامة. (ص ١٧)" },
+  { q: "كيف يتصرّف المسلم مع ذنبه بينه وبين الله؟", o: ["يُشيعه بين الناس", "يستر على نفسه ويتوب إلى الله", "يُوصي بكفارة دون توبة", "يؤجّل التوبة إلى عند الموت"], c: 1, e: "من فقه التوبة السترُ على النفس؛ فلا إفشاء للذنب، ويُستثنى ما كان في العلن أو تعلّقت به مظالم العباد. (ص ١٩-٢٠)" },
+  { q: "الذنب الذي بين العبد وصاحبه:", o: ["يكفي فيه الاستغفار", "لا توبة منه حتى يردّ المظالم", "تُكفَّر بكفارة اليمين", "لا علاقة له بالوصية"], c: 1, e: "روى الإمام الربيع: «الذنب ذنبان... أما الذي بين العبد وربه فمن تاب منه كمن لا ذنب له، والذي بين العبد وصاحبه فلا توبة منه حتى يرد المظالم». (ص ٢٠)" },
+  { q: "من تُصرف وصية الأقرب عند من قال بتعميمها؟", o: ["للورثة فقط", "لذكرور دون إناث", "لكل الأقارب بالسوية", "للفقراء وحدهم"], c: 2, e: "يُعمَّم القول بها لكل من أدلى إلى الموصي بنسبٍ ورحمٍ، بالسوية، لاشتراكهم في صفة القرابة. (ص ٢٧-٢٨)" },
+  { q: "المستحسن في وصية الأقرب كما ذكر القطب:", o: ["الإيصاء بشيء من الأصول", "الإيصاء بالعملة فقط", "تأجيلها إلى الورثة", "جعلها نقداً محدداً"], c: 0, e: "قال القطب: «وكل ما كان من الأصول أبقى كان عندي أولى، فالأرض أولى ثم الدار ونحوها ثم الشجر والنخل». (ص ٢٦)" },
+  { q: "حكم وصية الوالدين للولد البالغ في عُرف وادي مزاب:", o: ["فرضٌ على الوالدين", "مستحسَنةٌ تربويةٌ غير واجبة", "محرّمة", "لا حكم لها"], c: 1, e: "هي وسيلة تربوية لتعليم الولد مقصد الوصية، وتُعدّ تبرعاً من الوالدين؛ وقد تكون واجبة على البالغ إن كان له مال. (ص ٢٩)" },
+  { q: "أفضل صيغة لدعم المشاريع الخيرية بالثلث:", o: ["إخراج ذلك في الحياة وإشهاد الورثة عليه", "تأجيل الإعلان بعد الوفاة", "جعله نقداً بمبلغ ثابت", "توكيل الورثة دون إعلام"], c: 0, e: "التوصية الختامية: إخراج ذلك في حال الحياة، وإشهاد الورثة على الوصية بالثلث وإعلامهم بها حتى لا يكون عدم علمهم ذريعة للإنكار. (ص ٤٠)" }
 ];
 
 /* معجم المصطلحات */
@@ -1542,7 +1744,7 @@ const CALC_DEFAULTS = {
     $("#homeCounter").textContent = done + " / " + MODULES.length + " منجز";
     $("#sideHint").textContent = done === MODULES.length
       ? "أكملتَ المسار — تخرّجك جاهز ✦"
-      : "أكمل المحاور الثمانية لتحصل على شهادة التخرّج";
+      : "أكمل المحاور العشرة لتحصل على شهادة التخرّج";
     $$(".module-card").forEach((card) => {
       const isDone = state.progress.includes(card.dataset.page);
       card.classList.toggle("is-done", isDone);
@@ -1729,18 +1931,35 @@ const CALC_DEFAULTS = {
 
   /* ---------- الاختبار ---------- */
   const AR_KEYS = ["أ", "ب", "ج", "د"];
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
   function startQuiz() {
-    state.quiz = { active: true, index: 0, score: 0, answered: false };
+    const questions = shuffle(QUIZ).map((q) => {
+      const idx = shuffle(q.o.map((_, i) => i));
+      return {
+        q: q.q,
+        o: idx.map((i) => q.o[i]),
+        c: idx.indexOf(q.c),
+        e: q.e
+      };
+    });
+    state.quiz = { active: true, index: 0, score: 0, answered: false, questions };
     $("#quizIntro").hidden = true;
     $("#quizBox").hidden = false;
     renderQuestion();
   }
   function renderQuestion() {
-    const q = QUIZ[state.quiz.index];
-    const pct = Math.round((state.quiz.index / QUIZ.length) * 100);
+    const q = state.quiz.questions[state.quiz.index];
+    const pct = Math.round((state.quiz.index / state.quiz.questions.length) * 100);
     $("#quizBox").innerHTML = `
       <div class="card quiz-card">
-        <div class="quiz-top"><span>السؤال ${state.quiz.index + 1} من ${QUIZ.length}</span><span>النتيجة: ${state.quiz.score} ✓</span></div>
+        <div class="quiz-top"><span>السؤال ${state.quiz.index + 1} من ${state.quiz.questions.length}</span><span>النتيجة: ${state.quiz.score} ✓</span></div>
         <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
         <div class="quiz-q">${esc(q.q)}</div>
         <div class="quiz-options">${q.o.map((o, i) => `<button class="opt" type="button" data-opt="${i}"><span class="opt-key">${AR_KEYS[i]}</span><span>${esc(o)}</span></button>`).join("")}</div>
@@ -1751,7 +1970,7 @@ const CALC_DEFAULTS = {
     const opt = e.target.closest("[data-opt]");
     if (opt && !state.quiz.answered) {
       const chosen = Number(opt.dataset.opt);
-      const q = QUIZ[state.quiz.index];
+      const q = state.quiz.questions[state.quiz.index];
       state.quiz.answered = true;
       if (chosen === q.c) state.quiz.score++;
       $$(".opt", $("#quizBox")).forEach((b, i) => {
@@ -1759,25 +1978,25 @@ const CALC_DEFAULTS = {
         if (i === q.c) b.classList.add("correct");
         else if (i === chosen) b.classList.add("wrong");
       });
-      $("#quizFeedback").innerHTML = `<div class="quiz-feedback"><strong>${chosen === q.c ? "إجابة صحيحة ✓" : "الإجابة الصحيحة هي: ${AR_KEYS[q.c]}"}</strong><br>${esc(q.e)}<div class="action-row"><button class="btn btn-primary btn-sm" id="quizNext" type="button">${state.quiz.index === QUIZ.length - 1 ? "عرض النتيجة ✦" : "السؤال التالي ←"}</button></div></div>`;
+      $("#quizFeedback").innerHTML = `<div class="quiz-feedback"><strong>${chosen === q.c ? "إجابة صحيحة ✓" : "الإجابة الصحيحة هي: ${AR_KEYS[q.c]}"}</strong><br>${esc(q.e)}<div class="action-row"><button class="btn btn-primary btn-sm" id="quizNext" type="button">${state.quiz.index === state.quiz.questions.length - 1 ? "عرض النتيجة ✦" : "السؤال التالي ←"}</button></div></div>`;
       $("#quizNext").addEventListener("click", (ev) => { ev.stopPropagation(); nextQuestion(); });
       return;
     }
   }
   function nextQuestion() {
-    if (state.quiz.index + 1 < QUIZ.length) {
+    if (state.quiz.index + 1 < state.quiz.questions.length) {
       state.quiz.index++;
       state.quiz.answered = false;
       renderQuestion();
     } else {
-      const pct = Math.round((state.quiz.score / QUIZ.length) * 100);
+      const pct = Math.round((state.quiz.score / state.quiz.questions.length) * 100);
       const ok = pct >= 70;
       if (ok) markDone("quiz", true);
       $("#quizBox").innerHTML = `
         <div class="card quiz-result">
           <div class="score">${pct}%</div>
           <h3>${ok ? "أحسنتَ! نجحتَ في الاختبار ✦" : "تحتاج إلى مراجعة المحاور"}</h3>
-          <p class="muted">أجبتَ بشكل صحيح عن ${state.quiz.score} من ${QUIZ.length} سؤالاً.</p>
+          <p class="muted">أجبتَ بشكل صحيح عن ${state.quiz.score} من ${state.quiz.questions.length} سؤالاً.</p>
           <div class="action-row center">
             <button class="btn btn-primary" id="quizAgain" type="button">إعادة الاختبار</button>
             <button class="btn btn-ghost" id="quizBack" type="button">العودة إلى الاختبار</button>
@@ -2023,7 +2242,7 @@ const CALC_DEFAULTS = {
     state.willText = text;
     const done = state.progress.filter((id) => MODULE_IDS.includes(id)).length;
     const certNote = done === MODULES.length
-      ? "استوفى محاور الدورة الثمانية بنجاح، وأخرج وصيّته النموذجية وفق ما تعلّمه."
+      ? "استوفى محاور الدورة العشرة بنجاح، وأخرج وصيّته النموذجية وفق ما تعلّمه."
       : "أخرج وصيّته النموذجية، وتبقّى " + (8 - done) + " محوراً لاستكمال المسار (" + done + "/8).";
     $("#willOutput").innerHTML = `
       <div class="will-sheet printable">
@@ -2085,6 +2304,78 @@ const CALC_DEFAULTS = {
     form.reset(); $("#willOutput").hidden = true; $("#willOutput").innerHTML = "";
     setStep(0); toast("تمّ مسح المسوّدة");
   });
+
+  /* ---------- البحث في كل المحاور ---------- */
+  const searchInput = $("#siteSearch");
+  const searchBox = $("#searchResults");
+  const PAGE_LABELS = {
+    home: "الرئيسية", concept: "المدخل التصوري", rules: "أحكام الوصية ومقاصدها", kaffarat: "الكفّارات",
+    rights: "الحقوق والالتزامات", agent: "الوكيل وأهليته", mirath: "مدخل المواريث", tafdiya: "تصفية التركات",
+    builder: "صانع الوصيّة", spiritual: "التوبة والوصية الروحية", customs: "وصية الأقرب والخاتمة",
+    quiz: "اختبار المعرفة", glossary: "معجم المصطلحات", about: "عن الدورة والمصادر"
+  };
+  function runSearch(term) {
+    const q = term.trim();
+    if (q.length < 2) { searchBox.hidden = true; searchBox.innerHTML = ""; return; }
+    const needle = q.toLocaleLowerCase("ar");
+    const found = [];
+    $$(".page").forEach((page) => {
+      const text = (page.innerText || "").replace(/\s+/g, " ").trim();
+      const at = text.toLocaleLowerCase("ar").indexOf(needle);
+      if (at === -1) return;
+      const from = Math.max(0, at - 45);
+      const snippet = (at > 45 ? "… " : "") + text.slice(from, at + q.length + 95) + " …";
+      found.push({ id: page.id, label: PAGE_LABELS[page.id] || page.id, snippet });
+    });
+    searchBox.innerHTML = found.length
+      ? found.map((r) => `<button class="search-result" type="button" data-page-hit="${r.id}"><strong>${esc(r.label)}</strong><small>${esc(r.snippet)}</small></button>`).join("")
+      : `<div class="search-empty">لا توجد نتيجة لـ «${esc(q)}». جرّب كلمة أخرى مثل: محاصصة، أقرب، توبة، كفارة.</div>`;
+    searchBox.hidden = false;
+  }
+  searchInput.addEventListener("input", (e) => runSearch(e.target.value));
+  searchInput.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") { searchBox.hidden = true; searchInput.value = ""; searchInput.blur(); }
+    if (e.key === "Enter") { const first = $(".search-result", searchBox); if (first) first.click(); }
+  });
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".search-wrap")) searchBox.hidden = true;
+    const hit = e.target.closest("[data-page-hit]");
+    if (hit) { showPage(hit.dataset.pageHit); searchBox.hidden = true; searchInput.value = ""; }
+  });
+
+  /* ---------- خريطة التوبة ---------- */
+  const TAWBA_DETAILS = {
+    "ندمٌ": ["الندم", "أن يتألم العبدُ لما صدر منه من تقصيرٍ في جنب الله تعالى، ويكون هذا الألمُ مصحوباً بصدقِ الرجوع لا بمجرد القول."],
+    "إقلاعٌ": ["الإقلاع", "أن يترك الذنبَ فوراً ولا يُصرّ عليه. فالإصرارُ هو أن يعود إليه ويُقيم عليه، وهو الذي يمنع قبول التوبة ويُطبع على القلب."],
+    "استغفارٌ": ["الاستغفار", "طلبُ المغفرة من الله مع الاعتراف له بالذنب؛ قال سبحانه: ﴿إِنَّ اللَّهَ يُحِبُّ التَّوَّابِينَ وَيُحِبُّ الْمُتَطَهِّرِينَ﴾."],
+    "استقامة": ["الاستقامة", "يلتزم العبدُ بعد توبته بالعمل الصالح والاستقامة على دين الله، فتُبدّل سيئاته حسنات، ويكون من عباد الرحمن الذين لا يُصرّون على ما فعلوا وهم يعلمون."]
+  };
+  const tawbaDetail = $("#tawbaDetail");
+  function renderTawba(key) {
+    const d = TAWBA_DETAILS[key] || TAWBA_DETAILS["ندمٌ"];
+    tawbaDetail.innerHTML = `<h3>${esc(d[0])}</h3><p>${esc(d[1])}</p>`;
+  }
+  $$(".tawba-step").forEach((step) => {
+    step.addEventListener("click", () => {
+      $$(".tawba-step").forEach((s) => s.classList.toggle("active", s === step));
+      renderTawba(step.dataset.t);
+    });
+  });
+  renderTawba("ندمٌ");
+
+  /* ---------- حاسبة وصية الأقرب ---------- */
+  const relAmount = $("#relativeAmount");
+  const relCount = $("#relativeCount");
+  const relResult = $("#relativeResult");
+  function renderRelatives() {
+    const amount = Math.max(0, Number(relAmount.value) || 0);
+    const count = Math.max(1, Math.floor(Number(relCount.value) || 1));
+    const each = amount / count;
+    relResult.innerHTML = `<div class="result-grid"><div><small>مبلغ الوصية</small><strong>${fmt(amount)} دج</strong></div><div><small>عدد الأقارب</small><strong>${fmt(count)}</strong></div><div><small>نصيب كل قريب</small><strong>${fmt(each)} دج</strong></div></div>`;
+  }
+  relAmount.addEventListener("input", renderRelatives);
+  relCount.addEventListener("input", renderRelatives);
+  renderRelatives();
 
   /* ---------- بدء التطبيق ---------- */
   renderModules();

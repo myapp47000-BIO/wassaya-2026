@@ -1,13 +1,13 @@
 /* eslint-env serviceworker */
 'use strict';
 
-const CACHE_NAME = 'rusukh-tarkat-v6';
+const CACHE_NAME = 'rusukh-tarkat-v8';
 const SHELL = [
   './',
   './index.html',
-  './css/style.css',
-  './js/data.js',
-  './js/app.js',
+  './css/style.css?v=1.1.0',
+  './js/data.js?v=1.1.0',
+  './js/app.js?v=1.1.0',
   './manifest.json',
   './icons/favicon-32.png',
   './icons/icon-192.png',
